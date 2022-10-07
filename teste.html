@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>programa</title>
+</head>
+<body>
+    
+    
+    <div id="Login">
+        <h1 Id="Titulo">Vamos Calcular seu IMC</h1>
+        <img id="Imagem" src="" alt="" width="30%" height="30%">
+        <label id="Result"></label>
+        <p>Escreva seu nome </p>
+        <input Id="Nome" type="text" value="">
+        <p>Agora digite sua idade</p>
+        <input Id="Idade" type="Number" value="">
+        <p>Por favor, coloque sua altura</p> 
+        <input Id="Altura" type="Number" value="">
+        <p>Coloque seu peso</p>
+        <input Id="Peso" type="Number" value="">
+        <button id="Botao" onclick = "Enviar()">Confirmar</button> <!-- O botão precisa ter uma Função para que ele funcione, no caso o Enviar() -->
+    </div>
+
+
+
+<!-- Id é # classe é . -->
+<!-- STYLE É O CSS -->
+<style>
+    body {
+        background-color: rgb(152, 250, 143); 
+        color: wheat;
+        font: normal 20pt arial; 
+    }
+     #Login{
+        background-color: rgb(30, 77, 5);
+        min-width: 250px;
+        max-width: 1000px;
+        margin: auto;
+        margin-bottom: 20px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgb(0 0 0 / 36%);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+     }
+     #Botao {
+background: #0066A2;
+color: white;
+border-style: outset;
+border-color: #0066A2;
+height: 50px;
+width: 100px;
+font: bold15px arial,sans-serif;
+text-shadow: none;
+}
+
+</style>
+
+<script>
+        /* Mais+ Menos- Multiplicar* Dividir/ Resto% Quadrado**  */
+
+  
+    function Enviar(){
+        var nome = document.getElementById("Nome").value;
+        var idade= document.getElementById("Idade").value;
+        var peso = document.getElementById("Peso").value;
+        var altura = document.getElementById("Altura").value;
+        
+        if (nome == "" || idade == "" || peso == "" || altura == ""){ //ESTOU DIZENDO QUE CASO QUALQUER UM DESSES ESTEJA VAZIO, IRÁ INTERROMPER O CÓDIGO! 
+            window.alert('POR FAVOR, PREENCHER OS DADOS CORRETAMENTE!!! ')
+        }else{
+            window.alert(`Meu nome é ${nome} e minha idade é ${idade} anos, tenho ${altura}m de altura e peso ${peso}Kg`);
+        }  
+        var calculo = peso/(altura*altura);
+        imc = calculo.toFixed(2)
+        document.getElementById("Titulo").innerHTML = imc; //ESTOU ALTERANDO O NOME DO TITULO PARA O VALOR DO CALCULO IMC
+        window.alert(imc);
+        document.getElementById("Result").style.fontSize="60px";
+
+        if (imc < 18.5){
+            document.getElementById("Result").innerHTML = "Você está abaixo do peso";
+
+        }
+        else if(imc <= 24.9){
+            document.getElementById("Result").innerHTML = "Você está no peso correto!";
+        }
+        else if(imc <= 29.9){
+            document.getElementById("Result").innerHTML = "Você está SobrePeso";
+        
+        }else if(imc <= 34.9){
+            document.getElementById("Result").innerHTML = "Você está Obeso Grau I";
+        }
+        else if(imc <= 39.9){
+            document.getElementById("Result").innerHTML = "Você está Obeso Grau II";
+        }
+        else{
+            document.getElementById("Result").innerHTML = "Você está Obeso Grau III ou Mórbido";
+        }
+        var foto = document.getElementById("Imagem").src;
+        foto = "https://i1.sndcdn.com/artworks-wNLK2vnJJyVEdaoR-XH6efg-t500x500.jpg"
+        window.document.body(foto);
+
+    }
+    //1 passo CHAMAR QUALQUER IMAGEM
+  
+    
+</script>
+</body>
+</html>
